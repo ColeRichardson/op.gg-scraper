@@ -9,8 +9,8 @@ URL = "https://www.monster.com/jobs/search/?q=Software-Developer\
 page = requests.get(URL)
 #pprint.pprint(page.content)
 
-soup = BeautifulSoup(page.content, "html.parser")
-results = soup.find(id="ResultsContainer")
+soup = BeautifulSoup(page.content, "html.parser") #takes in html from page.content and parses with the html.parser
+results = soup.find(id="ResultsContainer") #this is where we point to the id of the div (class) that holds all the resulting job listings
 
 # Look for Python jobs
 python_jobs = results.find_all("h2", string=lambda t: "python" in t.lower())
